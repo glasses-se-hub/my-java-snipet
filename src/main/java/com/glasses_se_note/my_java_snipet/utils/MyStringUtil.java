@@ -30,4 +30,23 @@ public class MyStringUtil {
       return false;
     }
   }
+  
+  /**
+   * 文字列を改行コードで分割して文字列配列を返す.
+   * 改行コードにCRLF、LFが混在していても処理できるように
+   * 一旦CR(\r)をブランクに置換したあと、LFで分割する
+   * 
+   * @param str 処理対象文字列
+   * @return 処理済み文字列配列
+   */
+  public static String[] stringSplitWithLFandCRLF(String str) {
+    
+    // CRをブランクに置換する
+    str = str.replace("\r", "");
+    
+    String[] splitedStr = str.split("\n");
+    
+    return splitedStr;
+  }
+  
 }
